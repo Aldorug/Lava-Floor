@@ -15,7 +15,7 @@ public class MovementScript : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
     }
 
-    // If we were to make the movement for pc along with changing private move and jump to public
+    // If we were to make the movement for pc along with changing private move and jump to public. This function is for testing movement/jumping and can be deleted after polishing.
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -30,9 +30,9 @@ public class MovementScript : MonoBehaviour
             Move(1);
     }
 
-    public void Move(int xDirection)
+    public void Move(int aDirection)
     {
-        Vector2 direction = new Vector2(xDirection, 0) * movementSpeed * Time.deltaTime;
+        Vector2 direction = new Vector2(aDirection, 0) * movementSpeed * Time.deltaTime;
         playerBody.velocity += direction;
     }
 
