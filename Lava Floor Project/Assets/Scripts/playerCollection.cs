@@ -10,27 +10,38 @@ public class playerCollection : MonoBehaviour
 
     public GameObject playerDeath;
     public GameObject deathMenu;
+    public LifeCounter Damage;
 
     public float scoreValue;
+    public float timeLeft;
     public Text scoreText;
     
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        timeLeft = 3.0f;
         scoreText.text = "Score: " + scoreValue.ToString();
     }
 
-   
-    
-    private void OnTriggerEnter2D(Collider2D other)
+    //Fixed Update()
+    //{
+    //   timeLeft -= Time.deltaTime;
+    //
+    //    if(timeLeft <= 1) 
+    //       {
+    //        Physics.gravity = new Vector3(0, -20, 0);
+    //       timeLeft = 0;
+    //        }
+    //}
+
+        private void OnTriggerEnter2D(Collider2D other)
     {
         //sets player gravity on trigger overlap
         if (other.gameObject.CompareTag("Gravity"))
         {
             other.gameObject.SetActive(false);
-            rb.gravityScale *= -1;
+            rb.gravityScale *= -1.0f;
         }
 
         //sets scoreValue for UI
