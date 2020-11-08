@@ -12,6 +12,8 @@ public class MovementScript : MonoBehaviour
     public float deceleration;
     public float maxSpeed;
 
+    private bool facingRight = true;
+
     private Rigidbody2D playerBody;
     private float curHorSpeed;
     private float horzDir;
@@ -22,13 +24,23 @@ public class MovementScript : MonoBehaviour
     }
 
     // If we were to make the movement for pc along with changing private move and jump to public. This function is for testing movement/jumping and can be deleted after polishing.
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //        Jump();
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+           Jump();
 
-    //    horzDir = Input.GetAxisRaw("Horizontal");
-    //}
+       horzDir = Input.GetAxisRaw("Horizontal");
+
+        if (facingRight == false && horzDir > 0)
+        {
+            Flip();
+        }
+        if (facingRight == true && horzDir < 0)
+        {
+            Flip();
+        }
+
+    }
 
     public void Move(int xDirection)
     {
@@ -68,5 +80,11 @@ public class MovementScript : MonoBehaviour
         }
 
         playerBody.velocity = new Vector2(curHorSpeed, playerBody.velocity.y);
+    }
+
+    public void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0, 180, 0);
     }
 }
