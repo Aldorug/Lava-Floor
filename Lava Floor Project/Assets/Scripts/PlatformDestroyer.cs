@@ -19,6 +19,6 @@ public class PlatformDestroyer : MonoBehaviour
     }
     private void ObjDestroy()
     {
-        Destroy(platform, 6); // 5 seconds before the objects deletes itself
+        Destroy(platform, 5); // 5 seconds before the objects deletes itself
     }
 }

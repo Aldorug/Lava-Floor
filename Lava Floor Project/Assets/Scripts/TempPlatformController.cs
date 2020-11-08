@@ -27,23 +27,26 @@ public class TempPlatformController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if(collision.collider.tag == "Player")
         {
-             Invoke("Fall", 1f);
+            Invoke("Fall", 1f);
         }
 
-        if (col.gameObject.CompareTag("Death"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 3);
         }
-
     }
+
+
 
     private void Fall()
     {
         //disabler.GetComponent<TempPlatformController>().enabled = true;
-        rb.isKinematic = false;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<BoxCollider2D>().isTrigger = true;
+        Debug.Log("Fall is Called");
     }
 }

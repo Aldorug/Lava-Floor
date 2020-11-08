@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8427593355204768324}
   - component: {fileID: 8427593355204768323}
   - component: {fileID: 8427593355204768322}
+  - component: {fileID: -9089051678278601023}
   m_Layer: 0
   m_Name: Breaking Platform
   m_TagString: Platform
@@ -145,4 +146,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &-9089051678278601023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427593355204768326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afe574f96082554bb40aa3a3445aaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   platform: {fileID: 8427593355204768326}
