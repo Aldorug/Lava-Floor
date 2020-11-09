@@ -47,6 +47,5 @@ public class TempPlatformController : MonoBehaviour
         //disabler.GetComponent<TempPlatformController>().enabled = true;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         GetComponent<BoxCollider2D>().isTrigger = true;
-        Debug.Log("Fall is Called");
     }
 }

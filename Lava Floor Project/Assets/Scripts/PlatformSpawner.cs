@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour
 {
     public GameObject PlatformGO;
-    public float SpawnRate = 1.0f; //calculated in seconds
+    public float SpawnRate = .5f; //calculated in seconds
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +35,12 @@ public class PlatformSpawner : MonoBehaviour
     {
         float spawnSpeed;
 
-        if (SpawnRate > 1f)
+        if (SpawnRate > .5f)
         {
             spawnSpeed = Random.Range(1f, SpawnRate);
         }
         else
-            spawnSpeed = 1f;
+            spawnSpeed = .5f;
 
         Invoke("SpawnPlatform", spawnSpeed);
     }

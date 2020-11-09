@@ -11,8 +11,10 @@ public class MovementScript : MonoBehaviour
     public float acceleration;
     public float deceleration;
     public float maxSpeed;
+    private bool canJump = true;
+    private float jumpLimit = 0;
 
-    private bool facingRight = true;
+    private bool facingRight = false;
 
     private Rigidbody2D playerBody;
     private float curHorSpeed;
@@ -26,8 +28,19 @@ public class MovementScript : MonoBehaviour
     // If we were to make the movement for pc along with changing private move and jump to public. This function is for testing movement/jumping and can be deleted after polishing.
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-           Jump();
+        if (canJump == true && jumpLimit < 2)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+                jumpLimit++;
+            }
+
+            if(jumpLimit > 1)
+            {
+                canJump = false;
+            }
+        }
 
        horzDir = Input.GetAxisRaw("Horizontal");
 
@@ -39,6 +52,7 @@ public class MovementScript : MonoBehaviour
         {
             Flip();
         }
+
 
     }
 
@@ -86,5 +100,14 @@ public class MovementScript : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            canJump = true;
+            jumpLimit = 0;
+        }
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4078799038124447095}
   m_Layer: 0
   m_Name: Moving Platform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c944cf036d193614c8bfe0cecc50b498, type: 3}
-  m_Color: {r: 0.8396226, g: 0.48739138, b: 0.21782663, a: 1}
+  m_Color: {r: 0.7735849, g: 0.4264694, b: 0.16420436, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7305ea0ce6aab4b99aa94cab808965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.7
   TestPlatform: {fileID: 4078799038124447100}
 --- !u!50 &4078799038124447095
 Rigidbody2D:
