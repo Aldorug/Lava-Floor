@@ -14,6 +14,9 @@ public class MovementScript : MonoBehaviour
     private bool canJump = true;
     private float jumpLimit = 0;
 
+    public AudioSource fxSounds;
+    public AudioClip jumpSound;
+
     private bool facingRight = false;
 
     private Rigidbody2D playerBody;
@@ -67,6 +70,7 @@ public class MovementScript : MonoBehaviour
         // playerBody.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
         playerBody.velocity = new Vector2(playerBody.velocity.x, jumpHeight); // Forcemode.impulse applies the changes from multiplying jump height on the player object instantly, as it is usually applied gradually over time
         // Will add check requirement for if the player is not in the air before letting you jump
+        AudioSource.PlayClipAtPoint(jumpSound, transform.position);
     }
 
     private void FixedUpdate()

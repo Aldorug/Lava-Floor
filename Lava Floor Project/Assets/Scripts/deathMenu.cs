@@ -25,7 +25,7 @@ public class deathMenu : MonoBehaviour
     public void goToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
 
     }
 }
