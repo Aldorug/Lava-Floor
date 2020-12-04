@@ -8,6 +8,7 @@ TagManager:
   - Death
   - Coin
   - Platform
+  - GravityPickup
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,11 @@ public class playerCollection : MonoBehaviour
     public float scoreValue;
     public float timeLeft;
     public Text scoreText;
-    
+
+    //gamePlaySlowTime DataField use for Slow Affect
+    public float gamePlaySlow;
+    //delayTime field for how long Slow Affect will
+    public float delayTime=0.2f;
 
     private void Start()
     {
@@ -50,7 +54,14 @@ public class playerCollection : MonoBehaviour
             other.gameObject.SetActive(false);
             scoreValue += 1;
             scoreText.text = "Score: " + scoreValue.ToString();
+        }
 
+        if(other.gameObject.CompareTag("GravityPickup"))
+        {
+            other.gameObject.SetActive(false);
+
+            //Start GamePlaySlow Coroutine
+            StartCoroutine(GamePlaySlow());
         }
 
         //Kills player and brings up death menu
@@ -62,6 +73,12 @@ public class playerCollection : MonoBehaviour
         }
     }
 
-    
+    //Coroutine for Slow Motion Affect
+    IEnumerator GamePlaySlow()
+    {
+        Time.timeScale = gamePlaySlow * 2;
+        yield return new WaitForSeconds(delayTime);
+        Time.timeScale = 1;
+    }
 
 }
