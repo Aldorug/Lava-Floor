@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8427593355204768322}
   - component: {fileID: -9089051678278601023}
   m_Layer: 0
-  m_Name: Breaking Platform
+  m_Name: Breaking Platform 2
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e251ec1438bc4ae4085d8f2509afb569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.7
+  speed: 4
 --- !u!114 &-9089051678278601023
 MonoBehaviour:
   m_ObjectHideFlags: 0
